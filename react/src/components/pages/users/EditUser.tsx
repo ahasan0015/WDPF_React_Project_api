@@ -11,22 +11,11 @@ function EditUser() {
     useEffect(() => {
         document.title = "Edit User";
         getDataById();
-        getUsers();
         getRoles();
     }, []);
 
     const getDataById = () => {
         api.get("users/" + id)
-        .then((res) => {
-            setUser(res.data);
-        })
-        .catch((err) => {
-            console.error(err);
-        });
-    };
-    const [users, setUser] = useState([]);
-    const getUsers = () => {
-        api.get("users")
         .then((res) => {
             setUser(res.data);
         })
@@ -64,18 +53,6 @@ function EditUser() {
             <h5 className="card-header">Edit User</h5>
             <div className="card-body">
                 <form onSubmit={handleSubmit}>
-                    <div className="mb-3">
-                        <label className="form-label">User Id</label>
-                        <select name="user_id" className="form-select"
-                        value={user.user_id}
-                        onChange={(e) => setUser({...user, user_id: parseInt(e.target.value)})}>
-                            {
-                                users.map((item) =>
-                                    <option value={item.id} key={item.id}>{item.name}</option>
-                                )
-                            }
-                        </select>
-                    </div>
                     <div className="mb-3">
                         <label className="form-label">Role Id</label>
                         <select name="role_id" className="form-select"

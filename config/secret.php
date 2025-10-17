@@ -1,5 +1,5 @@
 <?php
 return [
-    'secret_key_jwt' => 'idb65'
+    'secret_key_jwt' => 'flight-management'
 ];
 ?>

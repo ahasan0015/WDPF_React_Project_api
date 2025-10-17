@@ -49,7 +49,7 @@ function ManageUser() {
             <table className="table table-striped">
                 <thead>
                     <tr>
-                                            <th>User Id</th>
+                                            <th>Id</th>
                         <th>Role Id</th>
                         <th>Name</th>
                         <th>Email</th>
@@ -63,7 +63,7 @@ function ManageUser() {
                     {
                         users.map((item) => (
                             <tr key={item.id}>
-                                <td>{item.user_id}</td>
+                                <td>{item.id}</td>
                                 <td>{item.role_id}</td>
                                 <td>{item.name}</td>
                                 <td>{item.email}</td>

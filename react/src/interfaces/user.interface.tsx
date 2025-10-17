@@ -1,5 +1,5 @@
 export interface User {
-  userId: number,
+  id: number,
   roleId?: number,
   name: string,
   email: string,
@@ -9,7 +9,7 @@ export interface User {
 }
 
 const userDefault: User = {
-  userId: 0,
+  id: 0,
   roleId: 0,
   name: "",
   email: "",

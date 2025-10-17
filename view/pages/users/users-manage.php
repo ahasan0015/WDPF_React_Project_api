@@ -32,7 +32,7 @@ if(isset($_POST['delete_id'])) {
 <table class="table table-striped">
   <thead>
   <tr>
-    <th>User Id</th>
+    <th>Id</th>
     <th>Role Id</th>
     <th>Name</th>
     <th>Email</th>
@@ -47,7 +47,7 @@ if(isset($_POST['delete_id'])) {
     $items = Users::readAll();
     foreach($items as $item){
       echo "<tr>";
-      echo "<td>".$item['user_id']."</td>";
+      echo "<td>".$item['id']."</td>";
       echo "<td>".$item['role_id']."</td>";
       echo "<td>".$item['name']."</td>";
       echo "<td>".$item['email']."</td>";

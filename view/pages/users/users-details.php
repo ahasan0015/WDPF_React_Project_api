@@ -24,8 +24,8 @@ if (isset($_GET["id"])) {
 <?php if (!empty($item)) { ?>
 <table class="table table-striped">
   <tr>
-    <th>User Id</th>
-    <td><?php echo htmlspecialchars($item['user_id']); ?></td>
+    <th>Id</th>
+    <td><?php echo htmlspecialchars($item['id']); ?></td>
   </tr>
   <tr>
     <th>Role Id</th>

@@ -1,7 +1,7 @@
 <?php
 
 class Users {
-    public $user_id;
+    public $id;
     public $role_id;
     public $name;
     public $email;
@@ -9,8 +9,8 @@ class Users {
     public $phone;
     public $created_at;
 
-    public function __construct($_user_id, $_role_id, $_name, $_email, $_password, $_phone, $_created_at) {
-        $this->user_id = $_user_id;
+    public function __construct($_id, $_role_id, $_name, $_email, $_password, $_phone, $_created_at) {
+        $this->id = $_id;
         $this->role_id = $_role_id;
         $this->name = $_name;
         $this->email = $_email;
@@ -21,7 +21,7 @@ class Users {
 
     public function create() {
         global $db;
-        $sql = "INSERT INTO users (user_id,role_id,name,email,password,phone,created_at) VALUES ('{$this->user_id}', '{$this->role_id}', '{$this->name}', '{$this->email}', '{$this->password}', '{$this->phone}', '{$this->created_at}')";
+        $sql = "INSERT INTO users (id,role_id,name,email,password,phone,created_at) VALUES ('{$this->id}', '{$this->role_id}', '{$this->name}', '{$this->email}', '{$this->password}', '{$this->phone}', '{$this->created_at}')";
         if ($db->query($sql)) {
           return $db->insert_id;
         } else {
@@ -54,7 +54,7 @@ class Users {
 
     public function update($id) {
         global $db;
-        $sql = "UPDATE users SET user_id='{$this->user_id}', role_id='{$this->role_id}', name='{$this->name}', email='{$this->email}', password='{$this->password}', phone='{$this->phone}', created_at='{$this->created_at}' WHERE id = $id";
+        $sql = "UPDATE users SET id='{$this->id}', role_id='{$this->role_id}', name='{$this->name}', email='{$this->email}', password='{$this->password}', phone='{$this->phone}', created_at='{$this->created_at}' WHERE id = $id";
         if ($db->query($sql)) {
           if ($db->affected_rows > 0) {
             return "Update successful.";

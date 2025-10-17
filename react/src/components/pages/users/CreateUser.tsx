@@ -7,11 +7,9 @@ import userDefault from "../../../interfaces/user.interface";
 function CreateUser() {
     const [user, setUser] = useState<User>(userDefault);
     const [roles, setRole] = useState<Role[]>([]);
-    const [users, setUser] = useState<User[]>([]);
 
     useEffect(() => {
         document.title = "Create User";
-            getUsers();
             getRoles();
     }, []);
 
@@ -19,15 +17,6 @@ function CreateUser() {
         api.get("roles")
         .then((res) => {
             setRole(res.data);
-        })
-        .catch((err) => {
-            console.error(err);
-        });
-
-    const getUsers = () => {
-        api.get("users")
-        .then((res) => {
-            setUser(res.data);
         })
         .catch((err) => {
             console.error(err);
@@ -55,16 +44,6 @@ function CreateUser() {
             <h5 className="card-header">Create User</h5>
             <div className="card-body">
                 <form onSubmit={handleSubmit}>
-                    <div className="mb-3">
-                        <label className="form-label">User Id</label>
-                        <select name="user_id" className="form-select" onChange={(e) => setUser({...user, user_id: parseInt(e.target.value)})}>
-                            {
-                                users.map((item) =>
-                                    <option value={item.id} key={item.id}>{item.name}</option>
-                                )
-                            }
-                        </select>
-                    </div>
                     <div className="mb-3">
                         <label className="form-label">Role Id</label>
                         <select name="role_id" className="form-select" onChange={(e) => setUser({...user, role_id: parseInt(e.target.value)})}>

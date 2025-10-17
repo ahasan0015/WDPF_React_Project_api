@@ -3,14 +3,14 @@
 require_once("models/users.class.php");
 $msg = "";
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $user_id = $_POST['user_id'];
+    $id = null; // Assuming auto-increment
     $role_id = $_POST['role_id'];
     $name = $_POST['name'];
     $email = $_POST['email'];
     $password = $_POST['password'];
     $phone = $_POST['phone'];
     $created_at = $_POST['created_at'];
-    $obj = new Users($user_id, $role_id, $name, $email, $password, $phone, $created_at);
+    $obj = new Users(null, $role_id, $name, $email, $password, $phone, $created_at);
     $msg = $obj->create();
 }
 
@@ -38,10 +38,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <form method="post">
   <input type="hidden" name="id">
   <div class="card-body">
-    <div class="form-group mb-3">
-      <label for="user_id">User Id</label>
-      <input type="text" class="form-control" name="user_id" id="user_id">
-    </div>
     <div class="form-group mb-3">
       <label for="role_id">Role Id</label>
       <input type="text" class="form-control" name="role_id" id="role_id">

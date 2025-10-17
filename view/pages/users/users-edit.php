@@ -4,14 +4,14 @@ require_once("models/users.class.php");
 $msg = "";
 $res = [];
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $user_id = $_POST['user_id'];
+    $id = $_POST['id'];
     $role_id = $_POST['role_id'];
     $name = $_POST['name'];
     $email = $_POST['email'];
     $password = $_POST['password'];
     $phone = $_POST['phone'];
     $created_at = $_POST['created_at'];
-    $obj = new Users($user_id, $role_id, $name, $email, $password, $phone, $created_at);
+    $obj = new Users($id, $role_id, $name, $email, $password, $phone, $created_at);
     $msg = $obj->update($id);
 }
 if (isset($_GET['id'])) {
@@ -44,10 +44,6 @@ if (isset($_GET['id'])) {
   <form method="post">
     <div class="card-body">
       <input type="hidden" name="id" value="<?php echo $res['id']; ?>">
-      <div class="form-group mb-3">
-        <label for="user_id">User Id</label>
-        <input type="text" class="form-control" name="user_id" id="user_id" value="<?php echo htmlspecialchars($res['user_id']); ?>">
-      </div>
       <div class="form-group mb-3">
         <label for="role_id">Role Id</label>
         <input type="text" class="form-control" name="role_id" id="role_id" value="<?php echo htmlspecialchars($res['role_id']); ?>">

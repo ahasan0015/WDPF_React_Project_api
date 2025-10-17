@@ -29,8 +29,8 @@ function DetailsUser() {
           <table className="table table-bordered">
             <tbody>
               <tr>
-                <th>User Id</th>
-                <td>{user.user_id}</td>
+                <th>Id</th>
+                <td>{user.id}</td>
               </tr>
               <tr>
                 <th>Role Id</th>
